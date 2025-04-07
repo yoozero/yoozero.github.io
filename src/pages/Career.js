@@ -220,7 +220,7 @@ const Career = () => {
                         >
                             <div className="text-3xl mb-8 transition-transform transform group-hover:scale-110">
                                 <img
-                                    src={`/images/${fileName}.png`}
+                                    src={`${process.env.PUBLIC_URL}/images/${fileName}.png`}
                                     alt={skill.name}
                                     className="w-12 h-12"
                                 />
