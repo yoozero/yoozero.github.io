@@ -52,7 +52,7 @@ const Career = () => {
                             name: "바야바즈 (2차 리뉴얼)",
                             link: [
                                 "https://play.google.com/store/apps/details?id=com.neurocircuit.bayabas.flutter&hl=ko",
-                                "https://apps.apple.com/kr/app/%EB%B0%94%EC%95%BC%EB%B0%94%EC%A6%88-ai%EA%B8%B0%EB%B0%98-%ED%83%88%EB%AA%A8-%EC%8A%B5%EA%B4%80%EA%B4%80%EB%A6%AC-%ED%99%88%EC%BC%80%EC%96%B4-%ED%94%8C%EB%9E%AB%ED%8F%BC/id1631768678"
+                                "https://apps.apple.com/kr/app/%EB%B0%94%EC%95%BC%EB%B0%94%EC%A6%88-ai%EA%B8%B0%EB%98%90-%ED%83%88%EB%AA%A8-%EC%8A%B5%EA%B4%80%EA%B4%80%EB%A6%AC-%ED%99%88%EC%BC%80%EC%96%B4-%ED%94%8C%EB%9E%AB%ED%8F%BC/id1631768678"
                             ],
                             subtitle: "탈모 예방 및 습관 개선 어플리케이션",
                             tasks: [
@@ -152,66 +152,27 @@ const Career = () => {
     ];
 
     const skillData = [
-        {
-            name: "HTML",
-            icon: "🌐",
-        },
-        {
-            name: "CSS",
-            icon: "🎨",
-        },
-        {
-            name: "JavaScript",
-            icon: "⚡",
-        },
-        {
-            name: "jQuery",
-            icon: "🔧",
-        },
-        {
-            name: "React",
-            icon: "⚛️",
-        },
-        {
-            name: "Sass",
-            icon: "💅",
-        },
-        {
-            name: "Tailwind CSS",
-            icon: "🍃",
-        },
-        {
-            name: "Bootstrap",
-            icon: "🥾",
-        },
-        {
-            name: "Dart",
-            icon: "⏭️",
-        },
-        {
-            name: "Flutter",
-            icon: "🦋",
-        },
-        {
-            name: "Git",
-            icon: "🔗",
-        },
+        { name: "HTML"},
+        { name: "CSS"},
+        { name: "JavaScript"},
+        { name: "jQuery"},
+        { name: "React"},
+        { name: "Sass"},
+        { name: "Tailwind CSS"},
+        { name: "Bootstrap"},
+        { name: "Dart"},
+        { name: "Flutter"},
+        { name: "Git"},
     ];
 
     return (
         <div className="flex flex-col items-center min-h-screen pt-20">
-
             <h2 className="text-3xl font-bold text-center mb-2">S<span className="font-marker">K</span>ILL</h2>
             <h2 className="text-base font-normal text-center mb-8 text-blue-500">기술 스택입니다</h2>
 
-
             <div className="w-full lg:w-2/5 flex flex-wrap justify-center items-center gap-6">
                 {skillData.map((skill, index) => {
-                    let fileName = skill.name.toLowerCase().replace(/\s/g, "");
-
-                    if (skill.name === "Tailwind CSS") {
-                        fileName = "Tailwind_CSS";
-                    }
+                    const fileName = skill.name.toLowerCase().replace(/\s/g, "");
 
                     return (
                         <div
@@ -220,7 +181,7 @@ const Career = () => {
                         >
                             <div className="text-3xl mb-8 transition-transform transform group-hover:scale-110">
                                 <img
-                                    src={`${process.env.PUBLIC_URL}/images/${fileName}.png`}
+                                    src={`/images/${fileName}.png`}
                                     alt={skill.name}
                                     className="w-12 h-12"
                                 />
@@ -234,14 +195,8 @@ const Career = () => {
                 })}
             </div>
 
-
-
-
-
             <h2 className="text-3xl font-bold text-center mb-2 mt-32">C<span className="font-marker">A</span>REER</h2>
             <h2 className="text-base font-normal text-center mb-12 text-blue-500">총 4년 경력의 타임라인입니다</h2>
-
-
 
             <div>
                 {careerData.map((career, index) => (
@@ -260,8 +215,8 @@ const Career = () => {
                                     {detail.projects
                                         .filter((project) => project.date || project.name || project.subtitle)
                                         .map((project, pIndex) => (
-                                            <div>
-                                                <div key={pIndex} className="flex items-center text-gray-700 my-4">
+                                            <div key={pIndex}>
+                                                <div className="flex items-center text-gray-700 my-4">
                                                     <span className="w-44 text-right text-gray-500">{project.date}</span>
                                                     <span className="font-medium ml-6 bg-gray-100 rounded-[5px] px-2 py-[1px]">{project.name}</span>
                                                     <span className="ml-[2px] flex">
@@ -289,10 +244,7 @@ const Career = () => {
                                                 <div className="flex mb-12">
                                                     <div className="w-44 border-r-[2px] border-r-gray-100 border-dashed"></div>
                                                     <div className="ml-4">
-                                                        <p className="text-gray-800 font-normal text-sm ml-4">
-                                                            {project.subtitle}
-                                                        </p>
-
+                                                        <p className="text-gray-800 font-normal text-sm ml-4">{project.subtitle}</p>
 
                                                         <ul className="pl-6 text-sm text-gray-500">
                                                             {project.tasks.map((task, taskIndex) => (
@@ -305,7 +257,6 @@ const Career = () => {
                                                         <div className="ml-2 mt-4">
                                                             {project.tool.map((tool, toolIndex) => {
                                                                 let bgColor = "bg-gray-400";
-
                                                                 switch (tool) {
                                                                     case "Flutter":
                                                                         bgColor = "bg-sky-400";
@@ -340,10 +291,8 @@ const Career = () => {
                                                                 );
                                                             })}
                                                         </div>
-
                                                     </div>
                                                 </div>
-
                                             </div>
                                         ))}
                                 </div>
